@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mir Arayata &amp; Carmela Pugay · December 19, 2026</title>
+<meta name="description" content="Mir Arayata and Carmela Pugay are getting married on December 19, 2026. View the details and RSVP.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mir & Carmela · December 19, 2026">
+<meta property="og:description" content="Join us as we say I do. Wedding details and RSVP.">
+<meta property="og:image" content="assets/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <a class="mono" href="#top" aria-label="Mir and Carmela, home">M &amp; C</a>
+  <nav aria-label="Main"><a href="#story">Our story</a><a href="#details">Details</a><a href="#rsvp" class="nav-rsvp">RSVP</a></nav>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="hero-img" role="img" aria-label="Mir and Carmela"></div>
+  <div class="hero-copy">
+    <p class="lead">Together with their families</p>
+    <h1><span>Mir Arayata</span><i>and</i><span>Carmela Pugay</span></h1>
+    <p class="date" id="heroDate"></p>
+    <p class="lead">invite you to celebrate their wedding</p>
+    <div class="count" id="countdown" aria-live="off"></div>
+    <a class="btn" href="#rsvp">RSVP</a>
+  </div>
+</section>
+
+<section class="sec" id="story" aria-labelledby="storyH">
+  <h2 id="storyH">Our story</h2>
+  <ol class="timeline" id="timeline"></ol>
+</section>
+
+<section class="sec alt" id="details" aria-labelledby="detH">
+  <h2 id="detH">Wedding details</h2>
+  <div class="events" id="events"></div>
+</section>
+
+<section class="sec" id="rsvp" aria-labelledby="rsvpH">
+  <h2 id="rsvpH">RSVP</h2>
+  <p class="sub" id="rsvpSub"></p>
+
+  <form id="rsvpForm" novalidate>
+    <ol class="steps" id="stepper" aria-label="Progress"></ol>
+    <div id="formErr" class="banner" role="alert" hidden></div>
+
+    <fieldset class="step" data-step="1">
+      <legend>Your details</legend>
+      <div class="field"><label for="name">Full name</label><input id="name" name="name" autocomplete="name" required><p class="err" id="e-name" role="alert"></p></div>
+      <div class="field"><label for="mobile">Mobile number</label><input id="mobile" name="mobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="0917 123 4567" required><p class="err" id="e-mobile" role="alert"></p></div>
+      <div class="field"><span class="lbl" id="attL">Will you attend?</span>
+        <div class="choices" role="radiogroup" aria-labelledby="attL">
+          <label class="choice"><input type="radio" name="attendance" value="Joyfully Accept"><span>Joyfully accept</span></label>
+          <label class="choice"><input type="radio" name="attendance" value="Regretfully Decline"><span>Regretfully decline</span></label>
+        </div><p class="err" id="e-attendance" role="alert"></p></div>
+    </fieldset>
+
+    <fieldset class="step" data-step="2" hidden>
+      <legend>Your party &amp; menu</legend>
+      <div class="field"><label for="guests">Number of guests, including you</label>
+        <select id="guests" name="guests"><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select><p class="err" id="e-guests" role="alert"></p></div>
+      <label class="check"><input type="checkbox" id="additionalGuest"><span>Request one additional guest (<span id="price"></span>)</span></label>
+      <p class="note">Additional guest requests will be reviewed, and we will contact you regarding payment arrangements.</p>
+      <div class="field"><span class="lbl" id="foodL">Choose up to 4 dishes</span>
+        <div class="foods" id="foods" role="group" aria-labelledby="foodL"></div>
+        <p class="hint" id="foodCount">0 of 4 selected</p><p class="err" id="e-food" role="alert"></p></div>
+    </fieldset>
+
+    <fieldset class="step" data-step="3" hidden>
+      <legend>Getting there</legend>
+      <div class="field"><span class="lbl" id="trL">Transportation</span>
+        <div class="choices col" role="radiogroup" aria-labelledby="trL">
+          <label class="choice"><input type="radio" name="transportation" value="Yes, I need transportation"><span>Yes, I need transportation</span></label>
+          <label class="choice"><input type="radio" name="transportation" value="No, I have my own transportation"><span>No, I have my own transportation</span></label>
+          <label class="choice"><input type="radio" name="transportation" value="I'm not sure yet"><span>I'm not sure yet</span></label>
+        </div><p class="err" id="e-transportation" role="alert"></p></div>
+      <div class="field" id="passWrap" hidden><label for="passengers">Number of passengers</label><input id="passengers" name="passengers" type="number" min="1" max="6" inputmode="numeric"></div>
+      <div class="field"><label for="diet">Dietary restrictions <em>(optional)</em></label><input id="diet" name="dietaryRestrictions" placeholder="Allergies, vegetarian, halal…"></div>
+      <div class="field"><label for="message">Message for the couple <em>(optional)</em></label><textarea id="message" name="message" rows="4"></textarea></div>
+    </fieldset>
+
+    <div class="nav-btns">
+      <button type="button" class="btn ghost" id="back" hidden>Back</button>
+      <button type="button" class="btn" id="next">Continue</button>
+      <button type="submit" class="btn" id="submit" hidden><span class="lab">Send RSVP</span><span class="spin" aria-hidden="true"></span></button>
+    </div>
+  </form>
+
+  <div class="thanks" id="thanks" tabindex="-1" hidden>
+    <h3 id="thanksH"></h3><p>Your RSVP has been received.</p><p id="thanksSub">We can't wait to celebrate with you.</p>
+  </div>
+</section>
+</main>
+
+<footer><p class="mono">M &amp; C</p><p id="footDate"></p></footer>
+<a class="sticky" href="#rsvp" id="sticky">RSVP</a>
+<script src="script.js"></script>
+</body>
+</html>
